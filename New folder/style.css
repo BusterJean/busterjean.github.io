@@ -1,0 +1,18 @@
+.image-container {
+    position: relative;
+    text-align: center; /* Untuk memusatkan teks */
+}
+
+.image-container img {
+    width: 100%; /* Atau ukuran spesifik */
+    height: auto; /* Untuk menjaga rasio aspek */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%; /* Menyesuaikan posisi vertikal */
+    left: 50%; /* Menyesuaikan posisi horizontal */
+    transform: translate(-50%, -50%); /* Untuk memusatkan teks */
+    color: white; /* Warna teks */
+    /* Tambahkan lebih banyak gaya teks sesuai kebutuhan */
+}
