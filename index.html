@@ -1,606 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TransportPro - Your Reliable Transportation Partner</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f0f8ff;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Desa Langgahan - Hidden Gem of Bali</title>
+  <style>
+    /* Global Styles and Variables */
+    :root {
+      --primary-color: #0e7c7b;
+      --secondary-color: #f4a261;
+      --accent-color: #e76f51;
+      --text-color: #333;
+      --light-color: #f8f9fa;
+      --dark-color: #264653;
+      --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --font-heading: 'Georgia', serif;
+      --transition: all 0.3s ease-in-out;
+    }
 
-        /* Header styles */
-        header {
-            background-color: #003366;
-            color: #fff;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
-        header.scrolled {
-            background-color: rgba(0, 51, 102, 0.9);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffa500;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        .nav-links li {
-            margin-left: 20px;
-        }
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: #ffa500;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Hero section styles */
-        .hero {
-            background-image: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('https://source.unsplash.com/1600x900/?truck,highway');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-        }
-        .hero-content {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #003366;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #ffa500;
-            color: #fff;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #ff8c00;
-        }
+    body {
+      font-family: var(--font-primary);
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-color);
+      overflow-x: hidden;
+    }
 
-        /* Section styles */
-        section {
-            padding: 4rem 0;
-            background-color: #fff;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #003366;
-        }
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--dark-color);
+      margin-bottom: 1rem;
+    }
 
-        /* About section styles */
-        .about-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 2rem;
-        }
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-        }
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    h1 {
+      font-size: 2.5rem;
+    }
 
-        /* Services section styles */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .service-card {
-            background-color: #f0f8ff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-        .service-icon {
-            font-size: 3rem;
-            color: #ffa500;
-            margin-bottom: 1rem;
-        }
-        .service-card h3 {
-            color: #003366;
-            margin-bottom: 0.5rem;
-        }
+    h2 {
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
 
-        /* Team section styles */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .team-member {
-            text-align: center;
-            background-color: #f0f8ff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-        .team-member img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid #ffa500;
-        }
-        .team-member h3 {
-            color: #003366;
-            margin-bottom: 0.5rem;
-        }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-color);
+    }
 
-        /* Contact section styles */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #003366;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: border-color 0.3s ease;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #ffa500;
-            outline: none;
-        }
-        .form-group textarea {
-            height: 150px;
-            resize: none;
-        }
-        .submit-button {
-            background-color: #003366;
-            color: #fff;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .submit-button:hover {
-            background-color: #004080;
-        }
+    p {
+      margin-bottom: 1rem;
+    }
 
-        /* Footer styles */
-        footer {
-            background-color: #003366;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-        }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .about-content {
-                flex-direction: column;
-            }
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 2rem;
-            }
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .char-count {
-            text-align: right;
-            font-size: 0.8em;
-            color: #666;
-            margin-top: 0.25rem;
-        }
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
 
-        /* New styles for animations and features */
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        .stat-item {
-            text-align: center;
-            margin: 1rem;
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #ffa500;
-        }
-        .stat-label {
-            font-size: 1rem;
-            color: #003366;
-        }
-        .testimonial-slider {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
-        }
-        .testimonial {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 1rem;
-        }
-        .testimonial.active {
-            opacity: 1;
-        }
-        .testimonial img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ffa500;
-            color: #fff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-        }
-    </style>
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* Header and Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      transition: var(--transition);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .logo span {
+      color: var(--accent-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--dark-color);
+      margin: 5px;
+      transition: var(--transition);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=1770&auto=format&fit=crop') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: white;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Features Section */
+    .features {
+      background-color: var(--dark-color);
+      color: white;
+    }
+
+    .features h2 {
+      color: white;
+      text-align: center;
+    }
+
+    .features h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--secondary-color);
+    }
+
+    .feature-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 3rem;
+    }
+
+    .feature-item {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h3 {
+      color: white;
+    }
+
+    /* Gallery Section */
+    .gallery-heading {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-heading h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      height: 250px;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-caption {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .modal-caption {
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close:hover {
+      color: var(--accent-color);
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: #f5f5f5;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+
+    .contact-icon {
+      margin-right: 1rem;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: var(--font-primary);
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .footer-links li {
+      margin: 0 15px;
+    }
+
+    .footer-links a {
+      color: white;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .social-icon {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 15px;
+    }
+
+    .social-icon:hover {
+      color: var(--secondary-color);
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--accent-color);
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 1024px) {
+      .feature-items {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        right: 0;
+        top: 80px;
+        background-color: white;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateY(-150%);
+        transition: var(--transition);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-items {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .gallery-container {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header id="header">
-        <nav class="container">
-            <div class="logo">TransportPro</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Your Reliable Transportation Partner</h1>
-                    <p>Efficient, safe, and timely transportation solutions for your business needs.</p>
-                    <a href="#contact" class="cta-button">Get a Quote</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2>About Us</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>TransportPro is a leading transportation company with over 20 years of experience in providing top-notch logistics solutions. We pride ourselves on our commitment to safety, reliability, and customer satisfaction.</p>
-                        <p>Our team of skilled professionals and state-of-the-art fleet ensure that your goods are transported efficiently and securely, no matter the destination.</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://source.unsplash.com/800x600/?logistics,warehouse" alt="TransportPro operations">
-                    </div>
-                </div>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="20">0</div>
-                        <div class="stat-label">Years of Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label">Satisfied Clients</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="1000">0</div>
-                        <div class="stat-label">Successful Deliveries</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🚚</div>
-                        <h3>Freight Transportation</h3>
-                        <p>Reliable and efficient freight transportation services for businesses of all sizes.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🏭</div>
-                        <h3>Warehousing</h3>
-                        <p>Secure storage solutions with advanced inventory management systems.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🌎</div>
-                        <h3>International Shipping</h3>
-                        <p>Seamless international shipping services to expand your global reach.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📦</div>
-                        <h3>Supply Chain Management</h3>
-                        <p>Comprehensive supply chain solutions to optimize your logistics operations.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials">
-            <div class="container">
-                <h2>What Our Clients Say</h2>
-                <div class="testimonial-slider">
-                    <div class="testimonial active">
-                        <img src="https://source.unsplash.com/100x100/?portrait" alt="Client 1">
-                        <p>"TransportPro has been instrumental in streamlining our logistics. Their efficiency and reliability are unmatched!"</p>
-                        <h4>John Smith, CEO of TechCorp</h4>
-                    </div>
-                    <div class="testimonial">
-                        <img src="https://source.unsplash.com/100x100/?woman" alt="Client 2">
-                        <p>"Their international shipping service has allowed us to expand our business globally. TransportPro is a game-changer!"</p>
-                        <h4>Sarah Johnson, COO of GlobalTrade Inc.</h4>
-                    </div>
-                    <div class="testimonial">
-                        <img src="https://source.unsplash.com/100x100/?man" alt="Client 3">
-                        <p>"The level of customer service provided by TransportPro is exceptional. They always go above and beyond."</p>
-                        <h4>Michael Lee, Logistics Manager at Retail Giants</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="team">
-            <div class="container">
-                <h2>Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="Sava.png" alt="John Doe">
-                        <h3>Adiel Muchammad Sava</h3>
-                        <p>CEO & Founder</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="Wahyu.png" alt="Jane Smith">
-                        <h3>I Gusti Agus Wahyu Pratama</h3>
-                        <p>Operations Manager</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="Indra.png" alt="Mike Johnson">
-                        <h3>Indra Harta</h3>
-                        <p>Fleet Manager</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message (max 500 characters)</label>
-                        <textarea id="message" name="message" required maxlength="500"></textarea>
-                        <div id="char-count" class="char-count">0 / 500</div>
-                    </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 TransportPro. All rights reserved.</p>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">Desa<span>Langgahan</span></div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#attractions">Attractions</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-    </footer>
+      </nav>
+    </div>
+  </header>
 
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Welcome to Desa Langgahan</h1>
+        <p>Experience the authentic Balinese culture and breathtaking natural beauty in this hidden gem of Bali</p>
+        <a href="#about" class="btn">Discover More</a>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2>About Desa Langgahan</h2>
+          <p>Desa Langgahan is a traditional village located in the eastern part of Bali, Indonesia. Nestled among lush rice terraces and surrounded by stunning natural landscapes, this picturesque village offers visitors an authentic glimpse into Balinese rural life and culture.</p>
+          <p>The village is known for its preserved traditional architecture, ancient temples, and the warmth of its local community. Unlike the more tourist-heavy areas of Bali, Desa Langgahan maintains its authentic charm and provides a peaceful retreat for those seeking to experience the real Bali.</p>
+          <p>Residents of Desa Langgahan continue to practice traditional farming methods, crafts, and religious ceremonies that have been passed down through generations, making it a living museum of Balinese heritage and traditions.</p>
+          <a href="#attractions" class="btn">Explore Attractions</a>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1604999586368-e8c0c1424302?q=80&w=1770&auto=format&fit=crop" alt="Traditional Balinese Village">
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the form data to a server
-            // For this example, we'll just log it to the console
-            console.log('Form submitted!');
-            console.log('Name:', this.name.value);
-            console.log('Email:', this.email.value);
-            console.log('Message:', this.message.value);
-            alert('Thank you for your message. We will get back to you soon!');
-            this.reset();
-            document.getElementById('char-count').textContent = '0 / 500';
-        });
+  <!-- Features/Attractions Section -->
+  <section id="attractions" class="features">
+    <div class="container">
+      <h2>What Makes Desa Langgahan Special</h2>
+      <div class="feature-items">
+        <div class="feature-item">
+          <div class="feature-icon">🏯</div>
+          <h3>Ancient Temples</h3>
+          <p>Visit centuries-old temples with intricate stone carvings and witness traditional Hindu ceremonies performed by locals.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌾</div>
+          <h3>Rice Terraces</h3>
+          <p>Explore stunning emerald-green rice terraces that cascade down hillsides, creating breathtaking landscapes perfect for photography.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎭</div>
+          <h3>Cultural Performances</h3>
+          <p>Experience authentic Balinese dance and music performances that tell stories from ancient Hindu epics.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🏞️</div>
+          <h3>Scenic Hiking Trails</h3>
+          <p>Discover hidden waterfalls, jungle paths, and panoramic viewpoints through guided hikes around the village.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🛍️</div>
+          <h3>Traditional Crafts</h3>
+          <p>Watch local artisans create traditional handicrafts using techniques passed down through generations.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🍚</div>
+          <h3>Authentic Cuisine</h3>
+          <p>Taste genuine Balinese dishes prepared with locally grown ingredients using traditional cooking methods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Character count for message textarea
-        document.getElementById('message').addEventListener('input', function() {
-            var charCount = this.value.length;
-            document.getElementById('char-count').textContent = charCount + ' / 500';
-        });
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="gallery-heading">
+        <h2>Gallery</h2>
+        <p>Glimpses of life and beauty in Desa Langgahan</p>
+      </div>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1545579133-99bb5ab189bd?q=80&w=1770&auto=format&fit=crop" alt="Bali Temple">
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Ancient Temple Gate</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1558005137-d9619a5c539f?q=80&w=1771&auto=format&fit=crop" alt="Rice Terraces">
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Emerald Rice Terraces</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1488275766247-fd7d147b3f12?q=80&w=1770&auto=format&fit=crop" alt="Cultural Performance">
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Traditional Balinese Dance</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1486304873000-235643847519?q=80&w=1769&auto=format&fit=crop" alt="Balinese Offerings">
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Daily Offerings (Canang Sari)</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1770&auto=format&fit=crop" alt="Local Market">
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Vibrant Local Market</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1518548419970-58cd00f2387b?q=80&w=1770&auto=format&fit=crop" alt="Jungle Waterfall">
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Hidden Waterfall</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Animated number counters
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
+  <!-- Modal for Gallery Images -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="modalCaption" class="modal-caption"></div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Visit Desa Langgahan</h2>
+          <p>We welcome visitors who are interested in experiencing our village's culture and natural beauty. Feel free to reach out with any questions or to arrange a guided tour.</p>
+          
+          <div class="contact-details">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Location</h4>
+              <p>Desa Langgahan, Kintamani, Bangli Regency, Bali, Indonesia</p>
+            </div>
+          </div>
+          
+          <div class="contact-details">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p>+62 xxx xxx xxxx</p>
+            </div>
+          </div>
+          
+          <div class="contact-details">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@desalanggahan.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-details">
+            <div class="contact-icon">🕒</div>
+            <div>
+              <h4>Best Time to Visit</h4>
+              <p>April to October (Dry Season)</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="logo">Desa<span>Langgahan</span></div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#attractions">Attractions</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="#" class="social-icon">📘</a>
+        <a href="#" class="social-icon">📸</a>
+        <a href="#" class="social-icon">🐦</a>
+        <a href="#" class="social-icon">📹</a>
+      </div>
+      <p>&copy; 2023 Desa Langgahan. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">↑</a>
+
+  <!-- JavaScript -->
+  <script>
+    // Navigation and scroll effects
+    const header = document.getElementById('header');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a nav link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
         }
+      });
+    });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const target = entry.target.getAttribute('data-target');
-                    animateValue(entry.target, 0, target, 2000);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+    // Scroll events
+    window.addEventListener('scroll', () => {
+      // Add shadow to header on scroll
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Show/hide back to top button
+      if (window.scrollY > 500) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
 
-        document.querySelectorAll('.stat-number').forEach((stat) => {
-            observer.observe(stat);
-        });
+    // Image gallery modal
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const captionText = document.getElementById('modalCaption');
+    const closeBtn = document.getElementsByClassName('close')[0];
 
-        // Testimonial slider
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial');
+    // Open modal when clicking on gallery image
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImg.src = this.querySelector('img').src;
+        captionText.innerHTML = this.querySelector('.gallery-caption').textContent;
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+      });
+    });
 
-        function showNextTestimonial() {
-            testimonials[currentTestimonial].classList.remove('active');
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            testimonials[currentTestimonial].classList.add('active');
+    // Close modal
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = ''; // Re-enable scrolling
+    });
+
+    // Close modal when clicking outside the image
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Here you would normally send the data to a server
+      // For demo purposes, just show an alert
+      alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
+      
+      // Reset form
+      contactForm.reset();
+    });
+
+    // Animations on scroll (simple implementation)
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.feature-item, .about-content, .about-image, .gallery-item');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
         }
+      });
+    }
 
-        setInterval(showNextTestimonial, 5000);
+    // Set initial states for animation
+    document.querySelectorAll('.feature-item, .about-content, .about-image, .gallery-item').forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
 
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Header background change on scroll
-        const header = document.getElementById('header');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
+    // Run animations on load and scroll
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
